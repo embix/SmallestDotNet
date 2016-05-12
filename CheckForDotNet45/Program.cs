@@ -36,11 +36,14 @@ namespace CheckForDotNet45
             {
                 Console.Write("Checking .NET version...");
 
+                String releaseKeyText = null;
                 int releaseKey = 0;
                 string version = null;
-                if (IsNet45OrNewer())
+                var isNet45OrNewer = IsNet45OrNewer();
+                if (isNet45OrNewer)
                 {
                     releaseKey = GetDotnetReleaseKeyFromRegistry();
+                    releaseKeyText = releaseKey.ToString();
                 }
                 else
                 {
@@ -52,16 +55,18 @@ namespace CheckForDotNet45
                         : string.Format(SiteWithVersion, version);
                 try
                 {
+                    var unknown = "unknown";
+                    Console.WriteLine();
+                    Console.WriteLine($"Your current .NET version is: {version??unknown}");
+                    Console.WriteLine($"Your current .NET 4.5+ release key is: {releaseKeyText??unknown}");
+                    var guess=global::Helpers.GetUpdateInformation("", "", releaseKey);
+                    Console.WriteLine(guess.Text);
                     Process.Start(url);
                 }
                 catch (Exception)
                 {
                     Console.WriteLine("\nApplication was unable to launch browser to go to {0}", url);
-                    if (version != null)
-                    {
-                        Console.WriteLine("Your current .NET version is: " + version);
-                    }
-                    else
+                    if (version == null)
                     {
                         Console.WriteLine("Please browse to the URL to get version information.");
                     }
