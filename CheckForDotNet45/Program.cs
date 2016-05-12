@@ -59,6 +59,10 @@ namespace CheckForDotNet45
                     Console.WriteLine();
                     Console.WriteLine($"Your current .NET version is: {version??unknown}");
                     Console.WriteLine($"Your current .NET 4.5+ release key is: {releaseKeyText??unknown}");
+                    bool isGuess;
+                    var versionGuess = Helpers.GetDotnetVersionFromReleaseKey(releaseKey, out isGuess);
+                    var justguessing = " (just guessing)";
+                    Console.WriteLine($"                    version: {versionGuess}{isGuess?justguessing:String.Empty}");
                     var guess=global::Helpers.GetUpdateInformation("", "", releaseKey);
                     Console.WriteLine(guess.Text);
                     Process.Start(url);

@@ -36,9 +36,6 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SmallestDotNetLib">
-      <HintPath>..\SmallestDotNetLib\bin\Debug\SmallestDotNetLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,15 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fuckit\BrowserSupport.cs" />
+    <Compile Include="Fuckit\CLRVersion.cs" />
+    <Compile Include="Fuckit\CLRVersions.cs" />
+    <Compile Include="Fuckit\Constants.cs" />
+    <Compile Include="Fuckit\Helpers.cs" />
+    <Compile Include="Fuckit\JsonVersions.cs" />
+    <Compile Include="Fuckit\OperatingSystemSupport.cs" />
+    <Compile Include="Fuckit\UpdateInformationResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fuckit\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
