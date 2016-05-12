@@ -62,13 +62,9 @@ namespace CheckForDotNet45
                     bool isGuess;
                     var versionGuess = Helpers.GetDotnetVersionFromReleaseKey(releaseKey, out isGuess);
                     var justguessing = " (just guessing)";
-                    var guessText = String.Format(
-                        "                    version: {0}{1}",
-                        versionGuess,
-                        isGuess ? justguessing : String.Empty);
-                    Console.WriteLine(guessText);
-                    var guess=global::Helpers.GetUpdateInformation("", "", releaseKey);
                     Console.WriteLine();
+                    Console.WriteLine($"                    version: {versionGuess}{(isGuess?justguessing:String.Empty)}");
+                    var guess=global::Helpers.GetUpdateInformation("", "", releaseKey);
                     Console.WriteLine(guess.Text);
                     Process.Start(url);
                 }
