@@ -3,6 +3,11 @@
 //     Copyright © Scott Hanselman, Michael Sarchet and Friends 2012. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using System.Reflection;
+
+[assembly: AssemblyInformationalVersion("1.0.0-alpha")]
+
 namespace CheckForDotNet45
 {
     using System;
